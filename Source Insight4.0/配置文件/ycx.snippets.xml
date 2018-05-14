@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceInsightCodeSnippets
+	AppVer="4.00.0093"
+	AppVerMinReader="4.00.0019"
+	>
+	<SnippetList>
+		<Snippet
+			Name="case"
+			Description="case label"
+			Language="C Family"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>case $label$:
+	$end$
+break;
+
+
+</Snippet>
+		<Snippet
+			Name="date"
+			Description="insert today&apos;s date"
+			Language="All"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="0"
+			>$date$ $current_function$ $current_symbol$ 
+
+</Snippet>
+		<Snippet
+			Name="dowh"
+			Description="do while loop"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>do
+{
+	$block$
+}
+while ($condition$)
+
+</Snippet>
+		<Snippet
+			Name="else"
+			Description="else block"
+			Language="All"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>else
+{
+	$else$
+}
+</Snippet>
+		<Snippet
+			Name="for"
+			Description="for loop"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			><![CDATA[for ($i$ = $start$; $i$ < $limit$; ++$i$)
+{
+	$end$
+}
+]]></Snippet>
+		<Snippet
+			Name="forsur"
+			Description="surround with for loop"
+			Language="C Family"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			><![CDATA[for ($i$ = $start$; $i$ < $limit$; ++$i$)
+{
+	$selection$
+}
+]]></Snippet>
+		<Snippet
+			Name="for_int"
+			Description="for loop with int interator"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			><![CDATA[for (int $i$ = $start$; $i$ < $limit$; ++$i$)
+{
+	$end$
+}
+]]></Snippet>
+		<Snippet
+			Name="funmc"
+			Description="multiline comment"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>/*******************************************************
+**Filename:		$file_no_path$
+**Funname:		$current_function$
+**Description:		
+**Input para:	void	
+**Return:		void	
+**Author:		$username$
+**DateTime:		$date$ $time$ 
+********************************************************/
+</Snippet>
+		<Snippet
+			Name="if"
+			Description="if block"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>if ($i$)
+{
+	$end$
+}
+</Snippet>
+		<Snippet
+			Name="ife"
+			Description="if-else block"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>if ($i$)
+{
+	$trueblock$
+}
+else
+{
+	$falseblock$
+}
+</Snippet>
+		<Snippet
+			Name="ifsur"
+			Description="surround with if block"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>if ($i$)
+{
+	$selection$
+}
+</Snippet>
+		<Snippet
+			Name="newfunc"
+			Description="new function"
+			Language="C/C++, C#"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>$type$ $function_name$($params$)
+{
+	$end$
+}
+
+
+</Snippet>
+		<Snippet
+			Name="switch"
+			Description="switch block"
+			Language="C/C++, C#"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>switch ($value$)
+{
+	case $case$:
+	break;
+}
+</Snippet>
+		<Snippet
+			Name="time"
+			Description="insert the current time"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="0"
+			>$time$
+</Snippet>
+		<Snippet
+			Name="while"
+			Description="while loop"
+			Language="All with { }"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>while ($cond$)
+{
+	$end$
+}
+</Snippet>
+		<Snippet
+			Name="ycxtest"
+			Description=""
+			Language="All"
+			Enabled="1"
+			EnableVariables="1"
+			StartOnNewLine="1"
+			>//ycxtest $date$ $time$
+</Snippet>
+	</SnippetList>
+</SourceInsightCodeSnippets>
