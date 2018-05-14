@@ -1,16 +1,16 @@
 # 破解Source Insight4.0	
 ## SI4.0破解补丁
-	[source insight 4.0 破解补丁](https://bbs.pediy.com/thread-215669.htm)
+[source insight 4.0 破解补丁](https://bbs.pediy.com/thread-215669.htm)
 ## 破解方法：
 	1. 安装原版软件：Source Insight Version 4.0.0093
 	2. 替换原主程序：sourceinsight4.exe
 	3. 导入授权文件：si4.pediy.lic
 ## 其他破解参考
-	[三步完成Source Insight 4.0 破解安装](https://blog.csdn.net/biubiuibiu/article/details/78044232)
+[三步完成Source Insight 4.0 破解安装](https://blog.csdn.net/biubiuibiu/article/details/78044232)
 # Source Insight 4.0 一些设置
-	[Source Insight 4.0 文件类型、编码格式、tab转空格、tab键自动补全设置](https://www.cnblogs.com/bluestorm/p/6864540.html)
+[Source Insight 4.0 文件类型、编码格式、tab转空格、tab键自动补全设置](https://www.cnblogs.com/bluestorm/p/6864540.html)
 # 解决Source Insight中文乱码
-	[source insight 4 中文乱码问题](https://blog.csdn.net/xiaohuima_dong/article/details/73224474)
+[source insight 4 中文乱码问题](https://blog.csdn.net/xiaohuima_dong/article/details/73224474)
 #  Source Insight 4.0注释
 ## 将下列代码加入base项目中的utils.em中，然后设置菜单和快捷键
 ```c
@@ -139,6 +139,6 @@ macro If0endif_MacroComment()
 }
 ```
 ## 设置参考
-	[source insight辅助工具+配置及快捷键](https://blog.csdn.net/wustzjf/article/details/39379985)
+[source insight辅助工具+配置及快捷键](https://blog.csdn.net/wustzjf/article/details/39379985)
 ## Source Insight使用Artistic Style时参数设置
-	`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`
+`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`
