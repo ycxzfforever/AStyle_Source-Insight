@@ -1,18 +1,26 @@
-# 破解Source Insight4.0	
-## SI4.0破解补丁
+# 一、破解Source Insight4.0	
+## 1.1 SI4.0破解补丁
 [source insight 4.0 破解补丁](https://bbs.pediy.com/thread-215669.htm)
-## 破解方法：
+## 1.2 破解方法：
 	1. 安装原版软件：Source Insight Version 4.0.0093
 	2. 替换原主程序：sourceinsight4.exe
 	3. 导入授权文件：si4.pediy.lic
-## 其他破解参考
+## 1.3 其他破解参考
 [三步完成Source Insight 4.0 破解安装](https://blog.csdn.net/biubiuibiu/article/details/78044232)
-# Source Insight 4.0 一些设置
+# 二、Source Insight 4.0 一些设置
+## 2.1 SI-4.0文件类型设置
 [Source Insight 4.0 文件类型、编码格式、tab转空格、tab键自动补全设置](https://www.cnblogs.com/bluestorm/p/6864540.html)
-# 解决Source Insight中文乱码
+## 2.2 设置参考
+[source insight辅助工具+配置及快捷键](https://blog.csdn.net/wustzjf/article/details/39379985)
+## 2.3 Source Insight使用Artistic Style时参数设置
+`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -D -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`
+[Artistic Style参数说明1](https://www.cnblogs.com/maodouzi/archive/2010/09/26/1835356.html)<br>
+[Artistic Style参数说明2](https://blog.csdn.net/fengbingchun/article/details/46828821)<br>
+[Artistic Style参数说明3](https://github.com/ycxzfforever/AStyle_Source-Insight/blob/master/Astyle.bat)<br>
+# 三、解决Source Insight中文乱码
 [source insight 4 中文乱码问题](https://blog.csdn.net/xiaohuima_dong/article/details/73224474)
-#  Source Insight 4.0注释
-## 将下列代码加入base项目中的utils.em中，然后设置菜单和快捷键
+# 四、Source Insight 4.0注释
+## 4.1 将下列代码加入base项目中的utils.em中，然后设置菜单和快捷键
 ```c
 //注释选择的字符串 Ctrl+Alt+C
 macro ChoseStr()
@@ -138,7 +146,3 @@ macro If0endif_MacroComment()
     SetWndSel( hwnd, sel )
 }
 ```
-## 设置参考
-[source insight辅助工具+配置及快捷键](https://blog.csdn.net/wustzjf/article/details/39379985)
-## Source Insight使用Artistic Style时参数设置
-`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`
