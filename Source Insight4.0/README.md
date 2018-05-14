@@ -13,7 +13,7 @@
 ## 2.2 设置参考
 [source insight辅助工具+配置及快捷键](https://blog.csdn.net/wustzjf/article/details/39379985)
 ## 2.3 Source Insight使用Artistic Style时参数设置
-`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -D -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`<br>
+`C:\AStyle\bin\AStyle.exe --style=ansi -f -p -j -D -s4 -S -N -L -m0 -M40 -U --convert-tabs --suffix=.pre %f`<br>
 [Artistic Style参数说明1](https://www.cnblogs.com/maodouzi/archive/2010/09/26/1835356.html)<br>
 [Artistic Style参数说明2](https://blog.csdn.net/fengbingchun/article/details/46828821)<br>
 [Artistic Style参数说明3](https://github.com/ycxzfforever/AStyle_Source-Insight/blob/master/Astyle.bat)<br>
