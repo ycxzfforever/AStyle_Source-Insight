@@ -164,7 +164,6 @@ macro SingleLineComment()
 	InsBufLine(hbuf, ln+1, "/* @szDescription@ @szMyName@.@mdName@ @Year@-@szMonth@-@szDay@ @szHour@:@szMinute@:@szSecond@ */")
 }
  
-
 //新建一个文件(.c,.cpp,.h)时，文件头的注释信息 
 macro MyInsertFileHeader()
 {
@@ -172,7 +171,7 @@ macro MyInsertFileHeader()
     hbuf = GetCurrentBuf()
     fPath = GetBufName(hbuf)//返回当前文件的绝对路径
     LocalTime = GetSysTime(1)
-    szMyName = getenv(hostname)
+    szMyName = getenv(MYNAME)
     Year = LocalTime.Year
     Month = LocalTime.Month
     Day = LocalTime.Day
@@ -244,10 +243,12 @@ macro MyInsertFileHeader()
             InsBufLine(hbuf, LnFirst++, "**/ ")
             InsBufLine(hbuf, LnFirst++, "")
             InsBufLine(hbuf, LnFirst++, "/* Define to prevent recursive inclusion -------------------------------------*/")
-            InsBufLine(hbuf, LnFirst++, "")
             InsBufLine(hbuf, LnFirst++, "#ifndef __@upperName@_H")
             InsBufLine(hbuf, LnFirst++, "#define __@upperName@_H")
             InsBufLine(hbuf, LnFirst++, "")
+            InsBufLine(hbuf, LnFirst++, "#ifdef __cplusplus")
+            InsBufLine(hbuf, LnFirst++, "extern \"C\" {")
+            InsBufLine(hbuf, LnFirst++, "#endif")
             InsBufLine(hbuf, LnFirst++, "/* Includes ------------------------------------------------------------------*/")
             InsBufLine(hbuf, LnFirst++, "#include \"includes.h\"")
             InsBufLine(hbuf, LnFirst++, "")
@@ -256,8 +257,14 @@ macro MyInsertFileHeader()
             InsBufLine(hbuf, LnFirst++, "/* Exported macro ------------------------------------------------------------*/")
             InsBufLine(hbuf, LnFirst++, "/* Exported functions ------------------------------------------------------- */")
             InsBufLine(hbuf, LnFirst++, "")
+            InsBufLine(hbuf, LnFirst++, "#ifdef __cplusplus")
+            InsBufLine(hbuf, LnFirst++, "}")
+            InsBufLine(hbuf, LnFirst++, "#endif")
             InsBufLine(hbuf, LnFirst++, "#endif  /* __@upperName@_H */")
             InsBufLine(hbuf, LnFirst++, "")
         }
     }
 } 
+
+
+
