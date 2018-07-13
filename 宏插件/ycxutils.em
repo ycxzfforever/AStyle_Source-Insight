@@ -1,4 +1,5 @@
-//ä½¿ç”¨/**/æ³¨é‡Šé€‰ä¸­çš„ä»£ç ï¼Œåªæ”¯æŒå•è¡Œ Ctrl+Alt+C
+/**********ÒÔÏÂÎª¸öÈËËù¼Ó************/
+//Ê¹ÓÃ/**/×¢ÊÍÑ¡ÖĞµÄ´úÂë£¬Ö»Ö§³Öµ¥ĞĞ Ctrl+Alt+C
 macro ChoseStr()
 {
     hbuf = GetCurrentBuf()
@@ -6,13 +7,13 @@ macro ChoseStr()
     str = GetBufSelText(hbuf)
     len = strlen(str)
  
-    if(strmid(str,0,2) != "/*")//æ·»åŠ æ³¨é‡Š
+    if(strmid(str,0,2) != "/*")//Ìí¼Ó×¢ÊÍ
     {
     	str = cat("/*",str)
 	    str = cat(str,"*/")
     }
     else if((strmid(str,0,2) == "/*")&&
-    		(strmid(str,len-2,len) == "*/")	)//åˆ é™¤æ³¨é‡Š
+    		(strmid(str,len-2,len) == "*/")	)//É¾³ı×¢ÊÍ
     {
     	str = strmid(str,2,len-2)   	
     }
@@ -20,7 +21,7 @@ macro ChoseStr()
     SetBufSelText (hbuf, str)
 }
 
-//ä½¿ç”¨/**/æ³¨é‡Šå•è¡Œ Ctrl+Alt+S
+//Ê¹ÓÃ/**/×¢ÊÍµ¥ĞĞ Ctrl+Alt+S
 macro SingleLine()
 {
     hbuf = GetCurrentBuf()
@@ -28,13 +29,13 @@ macro SingleLine()
 	str = GetBufLine (hbuf, ln)
 	len = strlen(str)
  
-    if(strmid(str,0,2) != "/*")//æ·»åŠ æ³¨é‡Š
+    if(strmid(str,0,2) != "/*")//Ìí¼Ó×¢ÊÍ
     {
     	str = cat("/*",str)
 	    str = cat(str,"*/")
     }
     else if((strmid(str,0,2) == "/*")&&
-    		(strmid(str,len-2,len) == "*/")	)//åˆ é™¤æ³¨é‡Š
+    		(strmid(str,len-2,len) == "*/")	)//É¾³ı×¢ÊÍ
     {
     	str = strmid(str,2,len-2)   	
     }
@@ -42,13 +43,13 @@ macro SingleLine()
     PutBufLine (hbuf, ln, str)
 }
 
-//ä½¿ç”¨//æ³¨é‡Šå¤šè¡Œ Ctrl+Alt+M
+//Ê¹ÓÃ//×¢ÊÍ¶àĞĞ Ctrl+Alt+M
 macro MultiLineComment()
 {
     hwnd = GetCurrentWnd()
     selection = GetWndSel(hwnd)
-    LnFirst =GetWndSelLnFirst(hwnd)      //å–é¦–è¡Œè¡Œå·
-    LnLast =GetWndSelLnLast(hwnd)      //å–æœ«è¡Œè¡Œå·
+    LnFirst =GetWndSelLnFirst(hwnd)      //È¡Ê×ĞĞĞĞºÅ
+    LnLast =GetWndSelLnLast(hwnd)      //È¡Ä©ĞĞĞĞºÅ
     hbuf = GetCurrentBuf()
     if(GetBufLine(hbuf, 0) =="//magic-number:tph85666031")
 	{
@@ -59,20 +60,20 @@ macro MultiLineComment()
     len = strlen(buf)
     while(Ln <= Lnlast) 
 	{
-        buf = GetBufLine(hbuf, Ln)  //å–Lnå¯¹åº”çš„è¡Œ
-        if(buf ==""){                   //è·³è¿‡ç©ºè¡Œ
+        buf = GetBufLine(hbuf, Ln)  //È¡Ln¶ÔÓ¦µÄĞĞ
+        if(buf ==""){                   //Ìø¹ı¿ÕĞĞ
             Ln = Ln + 1
             continue
     }
 
-	if(StrMid(buf, 0, 1) == "/"){       //éœ€è¦å–æ¶ˆæ³¨é‡Š,é˜²æ­¢åªæœ‰å•å­—ç¬¦çš„è¡Œ
+	if(StrMid(buf, 0, 1) == "/"){       //ĞèÒªÈ¡Ïû×¢ÊÍ,·ÀÖ¹Ö»ÓĞµ¥×Ö·ûµÄĞĞ
 		if(StrMid(buf, 1, 2) == "/"){
 			PutBufLine(hbuf, Ln, StrMid(buf, 2, Strlen(buf)))
 		}
 
 	}
 
-	if(StrMid(buf,0,1) !="/"){          //éœ€è¦æ·»åŠ æ³¨é‡Š
+	if(StrMid(buf,0,1) !="/"){          //ĞèÒªÌí¼Ó×¢ÊÍ
 		PutBufLine(hbuf, Ln, Cat("//", buf))
 	}
 	Ln = Ln + 1
@@ -80,7 +81,7 @@ macro MultiLineComment()
     SetWndSel(hwnd, selection)
 }
 
-//ä½¿ç”¨#if 0æ³¨é‡Šé€‰ä¸­çš„å¤šè¡Œä»£ç  Ctrl+Alt+0
+//Ê¹ÓÃ#if 0×¢ÊÍÑ¡ÖĞµÄ¶àĞĞ´úÂë Ctrl+Alt+0
 macro If0endif_MacroComment()
 {
     hwnd=GetCurrentWnd()
@@ -116,7 +117,7 @@ macro If0endif_MacroComment()
     SetWndSel( hwnd, sel )
 }
 
-//å•è¡Œæ³¨é‡Šæ–‡æœ¬ï¼Œæ·»åŠ ä¿®æ”¹åŸå› åŠæ—¥æœŸæ—¶é—´
+//µ¥ĞĞ×¢ÊÍÎÄ±¾£¬Ìí¼ÓĞŞ¸ÄÔ­Òò¼°ÈÕÆÚÊ±¼ä
 macro SingleLineComment()
 {
 	szMyName = "ycx"
@@ -159,17 +160,17 @@ macro SingleLineComment()
 	else
 		szSecond = Second
 		
-	szDescription = Ask("è¯·è¾“å…¥ä¿®æ”¹åŸå› ")
+	szDescription = Ask("ÇëÊäÈëĞŞ¸ÄÔ­Òò")
 	// begin assembling the title string
 	InsBufLine(hbuf, ln+1, "/* @szDescription@ @szMyName@.@mdName@ @Year@-@szMonth@-@szDay@ @szHour@:@szMinute@:@szSecond@ */")
 }
  
-//æ–°å»ºä¸€ä¸ªæ–‡ä»¶(.c,.cpp,.h)æ—¶ï¼Œæ–‡ä»¶å¤´çš„æ³¨é‡Šä¿¡æ¯ 
+//ĞÂ½¨Ò»¸öÎÄ¼ş(.c,.cpp,.h)Ê±£¬ÎÄ¼şÍ·µÄ×¢ÊÍĞÅÏ¢ 
 macro MyInsertFileHeader()
 {
     LnFirst = 0
     hbuf = GetCurrentBuf()
-    fPath = GetBufName(hbuf)//è¿”å›å½“å‰æ–‡ä»¶çš„ç»å¯¹è·¯å¾„
+    fPath = GetBufName(hbuf)//·µ»Øµ±Ç°ÎÄ¼şµÄ¾ø¶ÔÂ·¾¶
     LocalTime = GetSysTime(1)
     szMyName = getenv(MYNAME)
     Year = LocalTime.Year
@@ -179,10 +180,10 @@ macro MyInsertFileHeader()
 
     if (fPath != hNil)
     {
-        fLen = strlen(fPath)
-
+    	fLen = strlen(fPath)
+/*        		
         len = fLen
-		while (len > 0)//æŸ¥æ‰¾æ–‡ä»¶ååç¼€
+		while (len > 0)//²éÕÒÎÄ¼şÃûºó×º
 		{
 			if (fPath[len] == ".")
 				break
@@ -192,14 +193,16 @@ macro MyInsertFileHeader()
 		suffixLen = strlen(fPath) - len;
 		
 		len = fLen
-		while (len > 0)//æŸ¥æ‰¾æ–‡ä»¶åå‰ç¼€
+		while (len > 0)//²éÕÒÎÄ¼şÃûÇ°×º
 		{
 			if (fPath[len] == "\\")
 				break
 			len = len - 1
 		}
 		fileName = strmid(fPath, len+1, strlen(fPath)-suffixLen)
-
+*/
+		fileName = GetFileNameNoExt(fPath)
+		typeName = GetFileNameExt(fPath)
 		 		
         if((typeName=="c")||(typeName=="cpp"))
         {
@@ -231,7 +234,7 @@ macro MyInsertFileHeader()
             InsBufLine(hbuf, LnFirst++, "/* Private functions -------------------------------------------------------*/"
             InsBufLine(hbuf, LnFirst++, "")
         }
-        else if(StrMid(fPath, fLen - 1, fLen)=="h")
+        else if(typeName == "h")
         {
             upperName = toupper(fileName)
             InsBufLine(hbuf, LnFirst++, "/**")
@@ -274,4 +277,288 @@ macro MyInsertFileHeader()
             InsBufLine(hbuf, LnFirst++, "")
         }
     }
+} 
+
+//»ñÈ¡ÎÄ¼şÃûÇ°×º£¬±»µ÷ÓÃ
+macro GetFileNameNoExt(sz)
+{
+    i = 1
+    szName = sz
+    iLen = strlen(sz)
+    j = iLen 
+    if(iLen == 0)
+      return ""
+    while( i <= iLen)
+    {
+      if(sz[iLen-i] == ".")
+      {
+         j = iLen-i 
+      }
+      if( sz[iLen-i] == "\\" )
+      {
+         szName = strmid(sz,iLen-i+1,j)
+         return szName
+      }
+      i = i + 1
+    }
+    szName = strmid(sz,0,j)
+    return szName
 }
+
+//»ñÈ¡ÎÄ¼şÃûºó×º£¬±»µ÷ÓÃ
+macro GetFileNameExt(sz)
+{
+    i = 1
+    j = 0
+    szName = sz
+    iLen = strlen(sz)
+    if(iLen == 0)
+      return ""
+    while( i <= iLen)
+    {
+      if(sz[iLen-i] == ".")
+      {
+         j = iLen-i 
+         szExt = strmid(sz,j + 1,iLen)
+         return szExt
+      }
+      i = i + 1
+    }
+    return ""
+}
+
+//±»CreateFuncPrototypeµ÷ÓÃ
+macro SkipCommentFromString(szLine,isCommentEnd)
+{
+    RetVal = ""
+    fIsEnd = 1
+    nLen = strlen(szLine)
+    nIdx = 0
+    while(nIdx < nLen )
+    {
+        //Èç¹ûµ±Ç°ĞĞ¿ªÊ¼»¹ÊÇ±»×¢ÊÍ£¬»òÓöµ½ÁË×¢ÊÍ¿ªÊ¼µÄ±ä±ê¼Ç£¬×¢ÊÍÄÚÈİ¸ÄÎª¿Õ¸ñ?
+        if( (isCommentEnd == 0) || (szLine[nIdx] == "/" && szLine[nIdx+1] == "*"))
+        {
+            fIsEnd = 0
+            while(nIdx < nLen )
+            {
+                if(szLine[nIdx] == "*" && szLine[nIdx+1] == "/")
+                {
+                    szLine[nIdx+1] = " "
+                    szLine[nIdx] = " " 
+                    nIdx = nIdx + 1 
+                    fIsEnd  = 1
+                    isCommentEnd = 1
+                    break
+                }
+                szLine[nIdx] = " "
+                
+                //Èç¹ûÊÇµ¹ÊıµÚ¶ş¸öÔò×îºóÒ»¸öÒ²¿Ï¶¨ÊÇÔÚ×¢ÊÍÄÚ
+//                if(nIdx == nLen -2 )
+//                {
+//                    szLine[nIdx + 1] = " "
+//                }
+                nIdx = nIdx + 1 
+            }    
+            
+            //Èç¹ûÒÑ¾­µ½ÁËĞĞÎ²ÖÕÖ¹ËÑË÷
+            if(nIdx == nLen)
+            {
+                break
+            }
+        }
+        
+        //Èç¹ûÓöµ½µÄÊÇ//À´×¢ÊÍµÄËµÃ÷ºóÃæ¶¼Îª×¢ÊÍ
+        if(szLine[nIdx] == "/" && szLine[nIdx+1] == "/")
+        {
+            szLine = strmid(szLine,0,nIdx)
+            break
+        }
+        nIdx = nIdx + 1                
+    }
+    RetVal.szContent = szLine;
+    RetVal.fIsEnd = fIsEnd
+    return RetVal
+}
+
+//±»CreateNewHeaderFileµ÷ÓÃ
+macro CreateFuncPrototype(hbuf,ln,szType,symbol)
+{
+    isLastLine = 0
+    hOutbuf = GetCurrentBuf()
+    szLine = GetBufLine (hbuf,symbol.lnName)
+    //È¥µô×¢ÊÍµÄ¸ÉÈÅ
+    RetVal = SkipCommentFromString(szLine,fIsEnd)
+    szNew = RetVal.szContent
+    fIsEnd = RetVal.fIsEnd
+    if(strlen(szType)>0)
+    {
+	    szLine = cat("@szType@ ",szLine)
+	    szNew = cat("@szType@ ",szNew)
+	}
+    sline = symbol.lnFirst     
+    while((isLastLine == 0) && (sline < symbol.lnLim))
+    {   
+        i = 0
+        j = 0
+        iLen = strlen(szNew)
+        while(i < iLen)
+        {
+            if(szNew[i]=="(")
+            {
+               j = j + 1;
+            }
+            else if(szNew[i]==")")
+            {
+                j = j - 1;
+                if(j <= 0)
+                {
+                    //º¯Êı²ÎÊıÍ·½áÊø
+                    isLastLine = 1  
+                    //È¥µô×îºó¶àÓàµÄ×Ö·û
+        	        szLine = strmid(szLine,0,i+1);
+                    szLine = cat(szLine,";")
+                    break
+                }
+            }
+            i = i + 1
+        }
+        InsBufLine(hOutbuf, ln, "@szLine@")
+        ln = ln + 1
+        sline = sline + 1
+        if(isLastLine != 1)
+        {              
+            //º¯Êı²ÎÊıÍ·»¹Ã»ÓĞ½áÊøÔÙÈ¡Ò»ĞĞ
+            szLine = GetBufLine (hbuf, sline)
+            szLine = cat("         ",szLine)
+            //È¥µô×¢ÊÍµÄ¸ÉÈÅ
+            RetVal = SkipCommentFromString(szLine,fIsEnd)
+	        szNew = RetVal.szContent
+	        fIsEnd = RetVal.fIsEnd
+        }                    
+    }
+    return ln
+}
+
+//¸ù¾İÊäÈëµÄÎÄ¼şÃû»òÕßµ±Ç°ÎÄ¼şÃûĞÂ½¨Ò»¸ö.hÍ·ÎÄ¼ş
+macro CreateNewHeaderFile()
+{
+    hbuf = GetCurrentBuf()
+    language = getreg(LANGUAGE)
+    if(language != 1)
+    {
+        language = 0
+    }
+    szName = getreg(MYNAME)
+    if(strlen( szName ) == 0)
+    {
+        szMyName = Ask("Enter your name:")
+        setreg(MYNAME, szMyName)
+    }
+    isymMax = GetBufSymCount(hbuf)
+    isym = 0
+    ln = 0
+    //»ñµÃµ±Ç°Ã»ÓĞºó×ºµÄÎÄ¼şÃû
+    sz = ask("Please input header file name:(Input 1 named by the current file name)")
+    if(sz == "1")
+    {
+    	hbuf = GetCurrentBuf()
+    	fPath = GetBufName(hbuf)//·µ»Øµ±Ç°ÎÄ¼şµÄ¾ø¶ÔÂ·¾¶    	
+    	szFileName = GetFileNameNoExt(fPath)
+    	szExt = "h"
+    	sz = "@szFileName@.@szExt@"
+    } 
+    else
+    {
+		szFileName = GetFileNameNoExt(sz)
+	    szExt = GetFileNameExt(sz)        
+	}
+    szPreH = toupper (szFileName)
+    szPreH = cat("__",szPreH)
+    szExt = toupper(szExt)
+    szPreH = cat(szPreH,"_@szExt@__")
+    hOutbuf = NewBuf(sz) // create output buffer
+    if (hOutbuf == 0)
+        stop
+
+    SetCurrentBuf(hOutbuf)
+    MyInsertFileHeader()
+
+    lnMax = GetBufLineCount(hOutbuf)    
+    if(lnMax > 6)
+    {
+        ln = lnMax - 6
+    }
+    else
+    {
+        return
+    }
+    
+    hwnd = GetCurrentWnd()
+    if (hwnd == 0)
+        stop
+    sel = GetWndSel(hwnd)
+    sel.lnFirst = ln
+    sel.ichFirst = 0
+    sel.ichLim = 0
+    SetBufIns(hOutbuf,ln,0)
+    szType = Ask ("Please prototype type: 1-extern or 2-static or 3-none")
+	if (szType == "1")
+	{
+		szType = "extern"
+	}
+	else if(szType == "2")
+	{
+		szType = "static"
+	}
+	else 
+	{
+		szType = ""	
+	}	
+	//ËÑË÷·ûºÅ±íÈ¡µÃº¯ÊıÃû
+    while (isym < isymMax) 
+    {
+        isLastLine = 0
+        symbol = GetBufSymLocation(hbuf, isym)
+        fIsEnd = 1
+        if(strlen(symbol) > 0)
+        {
+            if(symbol.Type == "Class Placeholder")//ĞèÒªĞŞ¸Ä£¬²Î¿¼quicker.em
+	        {
+		        hsyml = SymbolChildren(symbol)
+				cchild = SymListCount(hsyml)
+				ichild = 0
+				szClassName = symbol.Symbol
+                InsBufLine(hOutbuf, ln, "}")
+			    InsBufLine(hOutbuf, ln, "{")
+			    InsBufLine(hOutbuf, ln, "class @szClassName@")
+			    ln = ln + 2
+		    	while (ichild < cchild)
+				{
+					childsym = SymListItem(hsyml, ichild)
+					childsym.Symbol = szClassName
+                    ln = CreateClassPrototype(hbuf,ln,childsym)
+					ichild = ichild + 1
+				}
+		        SymListFree(hsyml)
+                InsBufLine(hOutbuf, ln + 1, "")
+		        ln = ln + 2
+	        }
+            else if( symbol.Type == "Function" )
+            {
+                ln = CreateFuncPrototype(hbuf,ln,szType,symbol)
+            }
+            else if( symbol.Type == "Method" ) //ĞèÒªĞŞ¸Ä£¬²Î¿¼quicker.em
+            {
+                szLine = GetBufline(hbuf,symbol.lnName)
+                szClassName = GetLeftWord(szLine,symbol.ichName)
+                symbol.Symbol = szClassName
+                ln = CreateClassPrototype(hbuf,ln,symbol)            
+            }
+        }
+        isym = isym + 1
+    }
+    sel.lnLast = ln 
+    SetWndSel(hwnd,sel)
+}
+
